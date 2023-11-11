@@ -1,0 +1,90 @@
+Step 1
+Create Appwrite account
+Create a project
+Give permissions in Collection
+Create the Attributes(title, content, featuredImage, status, userId)
+Create Index (assign status as index) (Used to retrive post that are active using Query)
+Create Bucket as images (inside the Storage) => all the images will be stored in this BUCKET
+Copy the bucketId and paste in the environment variable
+Storage=>bucket=>settings=>Manage the access by ticking
+
+Step 2
+.env
+Created Envirnoment variable File
+Create Variables in it
+
+Step 3
+Create conf folder in src
+Create conf.js file in Conf
+import all the environment variables in it
+
+Step 4 (Create authrozation services) Very usefull code snippet
+To do this we have to refer appwrite documentation
+src => appwrite => auth.js 
+auth.js is used to Signup(Create Account), Login, logout, currentUser
+
+
+Step 5 (Create services to store)
+src => appwrite => config.js
+config.js is used to upload image, upload post etc...
+
+
+Step 6 (Using Redux)
+src=>store(Folder)
+src=>store=>store.js
+src=>store=>authSlice.js
+
+Step 7
+src => components(folder)
+src => components => Header(folder)=>Header.jsx (rafce)
+src => components => Footer(folder)=>Footer.jsx (rafce)
+src => components => Logo.jsx
+src => components => index.js (update based on component creation)
+
+Step 8
+Write a code in App.jsx
+src => pages (Folder) used to call the components and routing goes according to pages
+
+Step 9
+src => components => container(folder)
+src => components => container(folder) => Container.jsx(Write code in Container)
+Container accepts children as prop, displays whatever it is having as it
+src => components => Header => LogoutBtn.jsx(Write the code)
+Write a code  in Header.jsx
+src => components => Button.jsx (Write the code) 
+src => components => Input.jsx (Write the code) (We use forwardref hook(use in the beginning itself))
+
+Step 10
+src => components => Select.jsx (Drop down)(Write a code) use to know whether post to be active or inactive (We use forwardref hook but  in other way(use while exporting))
+
+Step 11
+src => components => PostCard.jsx (Write a code to display the post that user uploaded with preview image)
+src => components => Login.jsx (Refer react hook form documentation) (used RegEx)
+src => components => Signup.jsx (Refer react hook form documentation) (used useNavigate)
+src => components => AuthLayout.jsx (This page is used to protect route and pages)
+
+Step 12
+src => components => RTE.jsx (RTE stands for real time editor)(We can also use forwardRef but in this we used different approach called Controller)
+src => components => post-form(folder)=>PostForm.jsx (used to manage RTE.jsx)
+
+Step 13
+src => pages(Folder) => Signup.jsx (Write a code)
+src => pages => Login.jsx (Write a code)
+src => pages => AddPost.jsx (Write a code)
+src => pages => AllPost.jsx (Write a code)
+src => pages => EditPost.jsx (Write a code)
+src => pages => Home.jsx (Write a code)
+src => pages => Post.jsx (Write a code)
+
+Step 14
+Setup router in main.jsx
+
+
+Notes
+Some times we get problem like vender Lockin which means if we use some services(Backend as service eg:appwrite) if we want to switch to other service we will face the problem, so we write code in such a way that, code should work for all the services
+So we create services to avoid Vender Lockin Problem
+
+Container mostly contains contains childrens 
+
+study about useCallback hook
+
