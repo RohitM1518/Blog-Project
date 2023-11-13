@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import appwriteService from "../appwrite/config";
-import Button from "../components";
-import Container from "../components";
+import { Button, Container } from "../components";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
+import { mdiFileEdit,mdiDeleteAlert } from '@mdi/js';
 
 export default function Post() {
     const [post, setPost] = useState(null);
@@ -28,7 +28,7 @@ export default function Post() {
     const deletePost = () => {
         appwriteService.deletePost(post.$id).then((status) => {
             if (status) {
-                appwriteService.deleteFile(post.featuredImage);
+                appwriteService.deleteFile(post.featureImage);
                 navigate("/");
             }
         });
@@ -39,31 +39,38 @@ export default function Post() {
             <Container>
                 <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
                     <img
-                        src={appwriteService.getFilePreview(post.featuredImage)}
+                        src={appwriteService.getFilePreview(post.featureImage)}
                         alt={post.title}
                         className="rounded-xl"
+                        width={400}
+                        height={400}
                     />
 
                     {isAuthor && (
                         <div className="absolute right-6 top-6">
                             <Link to={`/edit-post/${post.$id}`}>
-                                <Button bgColor="bg-green-500" className="mr-3">
-                                    Edit
+                                <Button bgColor="bg-green-700" className="mr-3">
+                                    <svg width='20' height='20' viewBox='0 0 24 24' className='inline-block mb-1' >
+                                        <path d={mdiFileEdit} fill={'white'} />
+                                    </svg> Edit
                                 </Button>
                             </Link>
-                            <Button bgColor="bg-red-500" onClick={deletePost}>
+                            <Button bgColor="bg-red-700" onClick={deletePost}>
+                            <svg width='20' height='20' viewBox='0 0 24 24' className='inline-block mb-1' >
+                                        <path d={mdiDeleteAlert} fill={'white'} />
+                                    </svg>
                                 Delete
                             </Button>
-                        </div> 
-                        
-                    )} 
+                        </div>
+
+                    )}
                 </div>
-                <div className="w-full mb-6">
+                <div className="w-full mb-6 text-center">
                     <h1 className="text-2xl font-bold">{post.title}</h1>
                 </div>
                 <div className="browser-css">
                     {parse(post.content)}
-                    </div>
+                </div>
             </Container>
         </div>
     ) : null;

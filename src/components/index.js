@@ -11,8 +11,9 @@ import RTE from "./RTE"
 import Signup from "./Signup"
 import Container  from "./container/Container"
 import PostForm from "./post-form/PostForm"
+import LogoutBtn from "./Header/LogoutBtn"
 
-export default{
+export{
     Header,
     Footer,
     Input,
@@ -26,4 +27,5 @@ export default{
     Signup,
     Container,
     PostForm,
+    LogoutBtn
 }

@@ -3,9 +3,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom' 
 import { login as storeLogin } from '../store/authSlice'
-import  Input from "./index"
-import Logo from './Logo'
-import Button from './Button'
+import  {Input,Logo,Button} from "./index"
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import authService from '../appwrite/auth'
@@ -18,6 +16,7 @@ const Login = () => {
     const [error, setError] = useState("");
     //data is in form of Object, which is used in the below code as {...register{"email"}}
     const login = async (data) => {
+        console.log(data)
         setError("") //clean the error when we start login 
 
         try {
@@ -40,11 +39,11 @@ const Login = () => {
         }
     }
     return (
-        <div className='flex items-center justify-center w-full'>
+        <div className='flex items-center justify-center w-full h-screen'>
             <div className={`mx-auto w-full  max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
                 <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[100px]">
-                        <Logo width="100%" />
+                        <Logo width="100%" textColor='text-black'/>
                     </span>
                 </div>
                 <h2 className="text-center text-2xl font-bold leading-tight">Sign in to your account</h2>

@@ -23,7 +23,7 @@ class  AuthService{
     async createAccount({email,password,name}){
         try{
             //To know what parameters to pass to create new accout refer appwrite documnetation
-                const userAccount=this.account.create(ID.unique(),email,password,name);
+                const userAccount=await this.account.create(ID.unique(),email,password,name);
 
                 if (userAccount) {
                     //Call another method so if the user account is created user can redirected be login
@@ -51,9 +51,10 @@ class  AuthService{
     async getCurrentUser(){
          //used this method to check weather the user has directly entered the home page
         try {
-           return await this.account.get();
+            return await this.account.get();
+
         } catch (error) {
-            console.log(error);
+            console.log("Appwrite serive :: getCurrentUser :: error",error);
         }
         return null;
     }
@@ -64,7 +65,7 @@ async logout(){
     try {
         await this.account.deleteSessions(); //this will logout the user from all the browsers because we have used the deleteSessions not the deleteSession
     } catch (error) {
-        console.log(error);
+        console.log("Appwrite serive :: logout :: error",error);
         throw error;
     }
 }

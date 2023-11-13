@@ -14,7 +14,7 @@ const Input = React.forwardRef(function Input({
     return (
       <div className='w-full'>
         {/* if label exists then we display label tag */}
-        {label && <label className='inline-block pl-1 mb-1' htmlFor={id}>
+        {label && <label className='inline-block pl-1 mb-1 font-semibold' htmlFor={id}>
             {label}
             </label>
         }
@@ -24,12 +24,12 @@ const Input = React.forwardRef(function Input({
         ref={ref}
         {...props}
         id={id}
-         />
+        />
 
       </div>
     )
 }) 
-   
+
   
 
 export default Input

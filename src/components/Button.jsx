@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Button = ({ children,
+const Button = ({ 
+  children,
   type = 'button',
   bgColor = 'bg-blue-600',
   className = '',

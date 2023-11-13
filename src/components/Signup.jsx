@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import  Input from "./index"
-import Logo from './Logo'
-import Button from './Button'
+import { useNavigate,Link } from 'react-router-dom'
+import  {Input,Logo,Button} from "./index"
 import authService from '../appwrite/auth'
 import { login } from '../store/authSlice'
 import { useDispatch } from 'react-redux'
@@ -16,7 +13,8 @@ const Signup = () => {
   const { register, handleSubmit } = useForm()
   //register and handleSubmit are events
 
-  const signup = async (data) => {
+  const create = async (data) => {
+    console.log(data)
     setError("")
     try {
       const userData = await authService.createAccount(data)
@@ -33,11 +31,11 @@ const Signup = () => {
     }
   }
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center h-screen">
       <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
         <div className="mb-2 flex justify-center">
           <span className="inline-block w-full max-w-[100px]">
-            <Logo width="100%" />
+            <Logo width="100%" textColor='text-black'/>
           </span>
         </div>
         <h2 className="text-center text-2xl font-bold leading-tight">Sign up to create account</h2>
@@ -51,12 +49,13 @@ const Signup = () => {
                     </Link>
                     </p>
                     {error && <p className='text-red-500 text-center'>{error}</p>}
-                    <form onSubmit={handleSubmit(signup)}>
+                    <form onSubmit={handleSubmit(create)}>
                       <div className='space-y-5'>
                         <Input 
                         label="Full Name:"
                         placeholder="Enter your full name"
-                        {...register("name",{required:true})}
+                        {...register("name",{required:true,
+                        })}
                         />
                         <Input label='Email:' placeholder='Enter your Email'
                         type='email'
@@ -74,7 +73,8 @@ const Signup = () => {
                         label="Password"
                         placeholder="Enter Your Password"
                         type="password"
-                        {...register("password",{required:true})}
+                        {...register("password",{required:true,
+                        })}
                         />
                         <Button type='submit' className='w-full'>Create Accout</Button>
                       </div>

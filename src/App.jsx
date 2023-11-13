@@ -5,8 +5,7 @@ import { useDispatch } from 'react-redux';
 //react redux provides bridge between react and the redux
 import authService from './appwrite/auth';
 import {login,logout} from './store/authSlice'
-import Header from './components';
-import Footer from './components';
+import {Header,Footer} from './components';
 import {Outlet} from 'react-router-dom';
 
 function App() {
@@ -31,7 +30,7 @@ function App() {
 
   //conditional return rather than the traditional one
   return !loading ?(
-    <div className=' min-h-screen flex flex-wrap content-between bg-gray-400'>
+    <div className=' min-h-screen flex flex-wrap content-between bg-slate-300'>
       <div className='w-full block'>
         <Header />
         <main>
