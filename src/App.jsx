@@ -35,7 +35,7 @@ function App() {
      {/* <div className='bg-slate-100 max-sm:flex-col'>
       <div className='w-fit'> */}
         <Header />
-        <main className=' max-sm:mt-11'>
+        <main className=' mt-11'>
           {/* <Outlet />  this comes from react router dom */}
           <Outlet />
         </main>

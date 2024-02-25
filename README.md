@@ -1,1 +1,1 @@
-- [Check The website] (https://blog-news-15.netlify.app/)
+- Check The website: (https://blog-news-15.netlify.app/)
