@@ -4,6 +4,7 @@
 import React from 'react'
 import {Editor } from '@tinymce/tinymce-react';
 import { Controller } from 'react-hook-form';
+import conf from '../conf/conf';
 
 //control in props comes from react hook form and this responsible to manage the state
 export default function RTE ({name,control, label,defaultValue='' }) {
@@ -24,6 +25,7 @@ export default function RTE ({name,control, label,defaultValue='' }) {
         render={({field: {onChange}})=>{ // if there is change  in the field render Editor
             return (
                 <Editor
+                apiKey={conf.tinyMCEApiKey}
                 initialValue={defaultValue}
                 init={{
                     initialValue:defaultValue,

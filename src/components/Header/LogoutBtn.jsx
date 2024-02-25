@@ -16,7 +16,7 @@ const LogoutBtn = () => {
     }
 
   return (
-    <button className='inline-block px-6 py-2 duration-200 bg-blue-200 text-black hover:bg-blue-100 rounded-full mt-3 ml-7' onClick={logoutHandler}> <span className='mr-2'>
+    <button className='inline-block px-6 py-2 bg-stone-100 text-black hover:bg-blue-100 rounded-full mt-3 ml-7 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ' onClick={logoutHandler}> <span className='mr-2'>
     <svg width='20' height='20' viewBox='0 0 24 24' className='inline-block'>
       <path d={mdiLogout} fill={  'black'}/>
     </svg>

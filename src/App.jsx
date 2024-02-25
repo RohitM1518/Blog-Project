@@ -8,6 +8,7 @@ import {login,logout} from './store/authSlice'
 import {Header,Footer} from './components';
 import {Outlet} from 'react-router-dom';
 
+
 function App() {
   const[loading,setLoading]=useState(true); //used to show loading if the website still have not loaded else the website will be shown
   const dispatch = useDispatch();
@@ -30,16 +31,18 @@ function App() {
 
   //conditional return rather than the traditional one
   return !loading ?(
-    <div className=' min-h-screen flex flex-wrap content-between bg-slate-300'>
-      <div className='w-full block'>
+    <>
+     {/* <div className='bg-slate-100 max-sm:flex-col'>
+      <div className='w-fit'> */}
         <Header />
-        <main>
+        <main className=' max-sm:mt-11'>
           {/* <Outlet />  this comes from react router dom */}
           <Outlet />
         </main>
         <Footer />
-      </div>
-    </div>
+      {/* </div>
+    </div> */}
+    </>
   ) : null
 }
 
