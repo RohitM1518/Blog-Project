@@ -29,6 +29,9 @@ This website is deployed on Netlify and can be accessed at [https://blog-news-15
 
 Contributions are welcome! Please open an issue or submit a pull request if you have any improvements or bug fixes.
 
+## Screenshots
+
+
 ### Home Page
 ![image](https://github.com/RohitM1518/Blog-Project/assets/145917472/18ad9167-1da9-44e0-bc51-38e4d77514eb)
 
